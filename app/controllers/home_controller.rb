@@ -1,15 +1,15 @@
 class HomeController < ApplicationController
   def index
     @q = params[:q]
-    @tweets = search(@q)
+    @tweets = search
   end
 
   private
 
-  def search(search_term)
-    return if @q&.empty?
+  def search
+    return unless @q && !@q.empty?
     TwitterClient
-      .search("#{search_term} -rt", result_type: 'recent')
+      .search("#{@q} -rt", result_type: 'recent')
       .take(10)
   end
 end
