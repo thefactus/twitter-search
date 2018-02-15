@@ -1,6 +1,15 @@
-TwitterClient = Twitter::REST::Client.new do |config|
-  config.consumer_key        = ENV['YOUR_CONSUMER_KEY']
-  config.consumer_secret     = ENV['YOUR_CONSUMER_SECRET']
-  config.access_token        = ENV['YOUR_ACCESS_TOKEN']
-  config.access_token_secret = ENV['YOUR_ACCESS_SECRET']
+if Rails.env == "production"
+  TwitterClient = Twitter::REST::Client.new do |config|
+    config.consumer_key        = ENV['TWITTER_APP_CONSUMER_KEY']
+    config.consumer_secret     = ENV['TWITTER_APP_CONSUMER_SECRET']
+    config.access_token        = ENV['TWITTER_APP_ACCESS_TOKEN']
+    config.access_token_secret = ENV['TWITTER_APP_ACCESS_SECRET']
+  end
+else
+  TwitterClient = Twitter::REST::Client.new do |config|
+    config.consumer_key        = "YOUR_CONSUMER_KEY"
+    config.consumer_secret     = "YOUR_CONSUMER_SECRET"
+    config.access_token        = "YOUR_ACCESS_TOKEN"
+    config.access_token_secret = "YOUR_ACCESS_SECRET"
+  end
 end
