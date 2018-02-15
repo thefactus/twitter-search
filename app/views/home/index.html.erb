@@ -4,3 +4,13 @@
   <%= search_field_tag :q, @q, {autocomplete: 'off', placeholder: 'Search Twitter'} %>
   <%= submit_tag 'Search' %>
 <% end %>
+
+<% if @tweets&.any? %>
+  <% @tweets.each do |tweet| %>
+    <p>
+      <%= tweet.user.screen_name %>
+    </p>
+  <% end %>
+<% else %>
+  <p>No results.</p>
+<% end %>
