@@ -1,24 +1,13 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+# Twitter Search
 
 * Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+Ruby 2.4.2
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Use the `rspec` command to run the specs:
 
-* Deployment instructions
-
-* ...
+```
+bundle exec rspec
+```
