@@ -1,1 +1,6 @@
-<h1>Hello World</h1>
+<h1>Twitter Search</h1>
+
+<%= form_tag '', method: :get do %>
+  <%= search_field_tag :q, @q, {autocomplete: 'off', placeholder: 'Search Twitter'} %>
+  <%= submit_tag 'Search' %>
+<% end %>
