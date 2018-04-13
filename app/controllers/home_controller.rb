@@ -8,8 +8,12 @@ class HomeController < ApplicationController
 
   def search
     return unless @q && !@q.empty?
-    TwitterClient
+    begin
+      TwitterClient
       .search("#{@q} -rt", result_type: 'recent')
       .take(10)
+    rescue => e
+      generic_redirect root_url, alert: 'Error'
+    end
   end
 end
