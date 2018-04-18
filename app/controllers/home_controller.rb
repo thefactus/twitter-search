@@ -10,9 +10,9 @@ class HomeController < ApplicationController
     return unless @q && !@q.empty?
     begin
       TwitterClient
-      .search("#{@q} -rt", result_type: 'recent')
-      .take(10)
-    rescue => e
+        .search("#{@q} -rt", result_type: 'recent')
+        .take(10)
+    rescue Twitter::Error
       generic_redirect root_url, alert: 'Error'
     end
   end
